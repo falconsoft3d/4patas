@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Panel de Mascotas</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2e22",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased min-h-screen flex flex-col transition-colors duration-200">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md px-4 pt-12 pb-2">
+<div class="flex items-center justify-between">
+<button class="text-slate-900 dark:text-white flex size-10 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-surface-dark transition-colors">
+<span class="material-symbols-outlined text-[28px]">menu</span>
+</button>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Mis Mascotas</h2>
+<button class="flex size-10 cursor-pointer items-center justify-center rounded-full bg-transparent text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-surface-dark transition-colors">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+</button>
+</div>
+</div>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col px-4 pb-24 overflow-y-auto no-scrollbar">
+<!-- Headline -->
+<div class="pt-6 pb-2">
+<h1 class="text-slate-900 dark:text-white tracking-tight text-[32px] font-extrabold leading-tight">Hola, María 👋</h1>
+<p class="text-slate-500 dark:text-slate-400 text-base font-normal leading-normal pt-2">Aquí están tus amigos peludos y su estado de salud.</p>
+</div>
+<!-- Stats / Quick Summary (Optional but adds value) -->
+<div class="flex gap-3 my-6 overflow-x-auto no-scrollbar py-2">
+<div class="min-w-[140px] bg-white dark:bg-surface-dark p-4 rounded-lg shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="bg-primary/20 w-10 h-10 rounded-full flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-green-700 dark:text-green-400">pets</span>
+</div>
+<p class="text-2xl font-bold text-slate-900 dark:text-white">3</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wider">Mascotas</p>
+</div>
+<div class="min-w-[140px] bg-white dark:bg-surface-dark p-4 rounded-lg shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="bg-orange-100 dark:bg-orange-900/30 w-10 h-10 rounded-full flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-orange-600 dark:text-orange-400">vaccines</span>
+</div>
+<p class="text-2xl font-bold text-slate-900 dark:text-white">1</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wider">Pendiente</p>
+</div>
+</div>
+<!-- Pet List -->
+<div class="flex flex-col gap-4">
+<!-- Pet Item 1 -->
+<div class="group relative flex flex-col bg-white dark:bg-surface-dark rounded-lg p-4 shadow-sm border border-slate-100 dark:border-slate-800 active:scale-[0.99] transition-transform duration-150">
+<div class="flex items-center gap-4">
+<div class="relative shrink-0">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-16 w-16 shadow-inner" data-alt="Golden Retriever dog smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDXrkmARcEvEToG4zyk8BjG3fqZE0Ec15ErkAJS9Yj6fjW5FV4rX5RfyYBPXr_y7TvjN1slwNXBLPahGVWlwC4JcyUQ8ukusO_aYy3xw3K_56drud4xGkuB6gqrpVjXqsxlcNQnNuVKG5L2txMiWRjp84R3bmk22RvuVUDB5BBEsXTkmVSowyYXgNV8_dnO8lETn-Q26girMe1rx2djyMINuB2gDJjfjZo9gIEInalVp-SBBYFfg5HIGP50gfcFAbiRKmEFSWPjml4");'></div>
+<div class="absolute -bottom-1 -right-1 bg-primary text-slate-900 rounded-full p-1 border-2 border-white dark:border-surface-dark">
+<span class="material-symbols-outlined text-[14px] font-bold block">check</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight truncate">Max</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Golden Retriever</p>
+</div>
+</div>
+<div class="mt-2 flex items-center gap-2">
+<span class="bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 text-xs px-2 py-1 rounded-md font-medium">2 años</span>
+<span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs px-2 py-1 rounded-md font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Al día
+                             </span>
+</div>
+</div>
+<div class="shrink-0 self-center">
+<button class="text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-primary transition-colors flex size-8 items-center justify-center rounded-full hover:bg-slate-50 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pet Item 2 -->
+<div class="group relative flex flex-col bg-white dark:bg-surface-dark rounded-lg p-4 shadow-sm border border-slate-100 dark:border-slate-800 active:scale-[0.99] transition-transform duration-150">
+<div class="flex items-center gap-4">
+<div class="relative shrink-0">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-16 w-16 shadow-inner" data-alt="Siamese cat with blue eyes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAIXkNaZlYs9HfZps3f0MXB4AHPoeAnDs3q31FSZsOGryjv4y363uynAFumVUSBdQm1cuRCXlAzARlT1XfKIoUE_wcQFxL82TBXu1-fxpJhTLSNScX9PkfcBGETvbxqeM_o5NleUJD0dxlAbZHEauMhMTVwHyW98E2CgQS5oATpUwcLN5BkMYsPLhT5ZiLjiUJIrRrRj-bkR36Q_TsgZwfVTFbd62fhdLAUxJnD-qGT3uQ27LDDNx69LARxnMnfAkiFHW7YSPKTeC0");'></div>
+<!-- Warning Indicator -->
+<div class="absolute -bottom-1 -right-1 bg-amber-400 text-slate-900 rounded-full p-1 border-2 border-white dark:border-surface-dark animate-pulse">
+<span class="material-symbols-outlined text-[14px] font-bold block">priority_high</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight truncate">Luna</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Siamés</p>
+</div>
+</div>
+<div class="mt-2 flex items-center gap-2">
+<span class="bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 text-xs px-2 py-1 rounded-md font-medium">4 años</span>
+<span class="bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 text-xs px-2 py-1 rounded-md font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Vacuna pronto
+                             </span>
+</div>
+</div>
+<div class="shrink-0 self-center">
+<button class="text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-primary transition-colors flex size-8 items-center justify-center rounded-full hover:bg-slate-50 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pet Item 3 -->
+<div class="group relative flex flex-col bg-white dark:bg-surface-dark rounded-lg p-4 shadow-sm border border-slate-100 dark:border-slate-800 active:scale-[0.99] transition-transform duration-150">
+<div class="flex items-center gap-4">
+<div class="relative shrink-0">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-16 w-16 shadow-inner" data-alt="French Bulldog looking curious" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBAcb-94Ht1h6suzNoOOCtdxA-tsjqxol6Kh1qUA6h7_hj6ahJ1pzHYhQuUIz7YSEQEAbq01VFA-D8G3syayz5TKwYaYPJsYlDvBh7X9BLZd7kAuD-BLRQpGhimdnfEHt5iJ6di-CAbMnyD1WXOKv0mu2dm4eH3oBRyIHmx60b5UKKdC0n4Flc84lNCHVzKuqGRFnAZZ5qlB4KlULJSbPle8yFA0ac-G4ZjMlerONHlOnMX0Od_XRI48RIk74Qn_lj5RZrnbxPBpec");'></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight truncate">Rocky</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Bulldog Francés</p>
+</div>
+</div>
+<div class="mt-2 flex items-center gap-2">
+<span class="bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 text-xs px-2 py-1 rounded-md font-medium">1 año</span>
+<span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs px-2 py-1 rounded-md font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Al día
+                             </span>
+</div>
+</div>
+<div class="shrink-0 self-center">
+<button class="text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-primary transition-colors flex size-8 items-center justify-center rounded-full hover:bg-slate-50 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button Container (Bottom Fixed) -->
+<div class="fixed bottom-6 left-0 right-0 px-4 flex justify-center z-40 pointer-events-none">
+<button class="pointer-events-auto bg-primary text-slate-900 hover:bg-[#0fdc52] active:scale-95 transition-all shadow-lg shadow-primary/30 h-14 px-8 rounded-full flex items-center gap-2 font-bold text-lg">
+<span class="material-symbols-outlined text-[24px]">add</span>
+            Añadir Mascota
+        </button>
+</div>
+<!-- Bottom Navigation (Optional but recommended for context) -->
+<nav class="fixed bottom-0 left-0 w-full bg-white dark:bg-surface-dark border-t border-slate-100 dark:border-slate-800 pb-safe pt-2 px-6 flex justify-between items-center z-30 pb-4 h-[72px]">
+<button class="flex flex-col items-center justify-center gap-1 text-primary w-12">
+<span class="material-symbols-outlined fill-1">grid_view</span>
+<span class="text-[10px] font-bold">Panel</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 w-12">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="text-[10px] font-medium">Agenda</span>
+</button>
+<!-- Spacer for FAB -->
+<div class="w-12"></div>
+<button class="flex flex-col items-center justify-center gap-1 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 w-12">
+<span class="material-symbols-outlined">map</span>
+<span class="text-[10px] font-medium">Vets</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 w-12">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Perfil</span>
+</button>
+</nav>
+</body></html>

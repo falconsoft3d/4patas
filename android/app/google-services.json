@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "489317575546",
+    "project_id": "f-fdemo-ikag1q",
+    "storage_bucket": "f-fdemo-ikag1q.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489317575546:android:752ed9a696f413330d04c3",
+        "android_client_info": {
+          "package_name": "com.falconsoft3d.petcare.petcare_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnP9J5yPp6pf5NReEcvjNAZ8KFW41leBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

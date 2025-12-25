@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creación de Perfil de Mascota</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Epilogue -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                        "text-main": "#0d1b12",
+                        "text-muted": "#4c9a66",
+                        "input-bg": "#e7f3eb",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem", 
+                        "lg": "2rem", 
+                        "xl": "3rem", 
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-white overflow-x-hidden min-h-screen flex flex-col">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-transparent">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition-all text-text-main dark:text-white">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] text-center flex-1 pr-10">Nueva Mascota</h2>
+</div>
+<!-- Main Content -->
+<main class="flex-1 w-full max-w-md mx-auto flex flex-col gap-6 p-4 pb-32">
+<!-- Profile Header / Photo Upload -->
+<div class="flex flex-col items-center justify-center pt-2">
+<div class="relative group cursor-pointer">
+<div class="bg-input-bg dark:bg-white/5 bg-center bg-no-repeat bg-cover rounded-full h-32 w-32 shadow-sm border-4 border-white dark:border-background-dark relative overflow-hidden flex items-center justify-center" data-alt="Avatar placeholder with a paw print icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCMe4ukNnCB89tXZnZdbIuLch8YHihxWXPAeI6_Npaqh0OlMWQ4YKv-NedI5r-xUzFYkrqAdekjQdQfLRGm3Hz9tRY0ptSQA4lM5iR_li6cb0-U-5fWKXboHsBPhmzhvOPrxuKCqfNT43ekPAoQMy2hV_KfuYVF2BwXuFDhgdMTlKPuaZ67_IbRG-SVwAhW2RLT2NsRVl9HXjzj_XYqoNpjr6hsi_1cVs7zDPDb9qXw0bVLx9YU03J5Z9o5LSEZqOTR-KPuBPLLB80');">
+<!-- Image is set via style, but fallback icon if needed -->
+</div>
+<!-- Edit Badge -->
+<div class="absolute bottom-0 right-0 bg-primary text-black p-2 rounded-full border-4 border-background-light dark:border-background-dark shadow-md flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">photo_camera</span>
+</div>
+</div>
+<div class="mt-4 text-center">
+<p class="text-xl font-bold leading-tight">Sube una foto</p>
+<p class="text-text-muted dark:text-gray-400 text-sm font-medium mt-1">Toca para editar</p>
+</div>
+</div>
+<!-- Name Input -->
+<div class="flex flex-col gap-2">
+<label class="text-base font-bold pl-1">¿Cómo se llama?</label>
+<input class="w-full bg-input-bg dark:bg-white/5 border-transparent focus:border-primary focus:ring-0 rounded-xl px-5 py-4 text-base font-medium placeholder:text-text-muted/70 text-text-main dark:text-white transition-colors" placeholder="Nombre de tu mascota" type="text" value=""/>
+</div>
+<!-- Animal Type Selection -->
+<div class="flex flex-col gap-3">
+<h3 class="text-base font-bold pl-1">¿Qué animal es?</h3>
+<div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
+<!-- Selected State -->
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary pl-4 pr-6 ring-2 ring-primary ring-offset-2 ring-offset-background-light dark:ring-offset-background-dark transition-all shadow-sm">
+<span class="material-symbols-outlined text-black">pet_supplies</span>
+<p class="text-black text-sm font-bold">Perro</p>
+</button>
+<!-- Unselected States -->
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-full bg-input-bg dark:bg-white/5 pl-4 pr-6 hover:bg-primary/20 dark:hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-text-main dark:text-white">cruelty_free</span>
+<p class="text-text-main dark:text-white text-sm font-medium">Gato</p>
+</button>
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-full bg-input-bg dark:bg-white/5 pl-4 pr-6 hover:bg-primary/20 dark:hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-text-main dark:text-white">pest_control_rodent</span>
+<p class="text-text-main dark:text-white text-sm font-medium">Hamster</p>
+</button>
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-full bg-input-bg dark:bg-white/5 pl-4 pr-6 hover:bg-primary/20 dark:hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-text-main dark:text-white">pets</span>
+<p class="text-text-main dark:text-white text-sm font-medium">Otro</p>
+</button>
+</div>
+</div>
+<!-- Breed Input -->
+<div class="flex flex-col gap-2">
+<label class="text-base font-bold pl-1">Raza</label>
+<div class="relative">
+<input class="w-full bg-input-bg dark:bg-white/5 border-transparent focus:border-primary focus:ring-0 rounded-xl pl-5 pr-12 py-4 text-base font-medium placeholder:text-text-muted/70 text-text-main dark:text-white transition-colors" placeholder="Ej. Labrador, Siamés" type="text" value=""/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 text-text-muted pointer-events-none">
+<span class="material-symbols-outlined">search</span>
+</div>
+</div>
+</div>
+<!-- Date of Birth Input -->
+<div class="flex flex-col gap-2">
+<label class="text-base font-bold pl-1">Cumpleaños</label>
+<div class="relative">
+<input class="w-full bg-input-bg dark:bg-white/5 border-transparent focus:border-primary focus:ring-0 rounded-xl px-5 py-4 text-base font-medium placeholder:text-text-muted/70 text-text-main dark:text-white transition-colors appearance-none min-h-[56px]" type="date" value=""/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 text-text-muted pointer-events-none bg-input-bg dark:bg-background-dark pl-2">
+<span class="material-symbols-outlined">calendar_month</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button Area -->
+<div class="fixed bottom-0 left-0 w-full p-4 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark pb-8 pt-12 z-40 pointer-events-none">
+<div class="w-full max-w-md mx-auto pointer-events-auto">
+<button class="w-full bg-primary hover:bg-[#0fdc50] active:scale-[0.98] transition-all text-black text-lg font-bold rounded-full h-14 shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span>Crear Perfil</span>
+<span class="material-symbols-outlined">check</span>
+</button>
+</div>
+</div>
+</body></html>

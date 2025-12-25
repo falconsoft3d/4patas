@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDFG3vh2T_9YOGAUgSMWw7esvpr_JfmuIc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>489317575546</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.falconsoft3d.petcare.petcareApp</string>
+	<key>PROJECT_ID</key>
+	<string>f-fdemo-ikag1q</string>
+	<key>STORAGE_BUCKET</key>
+	<string>f-fdemo-ikag1q.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:489317575546:ios:afa99cdd1505e66c0d04c3</string>
+</dict>
+</plist>

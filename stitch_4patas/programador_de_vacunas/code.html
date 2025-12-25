@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Programador de Vacunas</title>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2e22",
+                        "text-main": "#0d1b12",
+                        "text-sub": "#4c9a66",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for horizontal calendar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-white antialiased transition-colors duration-200">
+<div class="relative flex h-full min-h-screen w-full flex-col group/design-root overflow-x-hidden pb-24">
+<!-- Header -->
+<header class="sticky top-0 z-20 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-100 dark:border-gray-800 transition-colors duration-200">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary" data-alt="Close up portrait of a golden retriever dog" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDA8DTLnysg99_-CsuT0q50JX4HRE9DydtvM06WWMU4Qd9ZtEdzR-iUPYzwiOv_OqTGIJOyuxb47qWhVJjbJeE191bB2PK_exdWTwaOQ3P0QXP3QB0O-Oz3kulVW6ksQQW1RwS7TaMVYG3b26cYqbmMPS2uLl_9Vfq3x_048EAL3ocPuIrOUItI0nIQosW-YEwh2x48yuJ1xzIlYL7fILFYAKDSa0d9wgJjFpPZEJmKSymf0H3-jL7Jh7AaujtDiwjeavakS4WVbKU");'>
+</div>
+<div class="absolute bottom-0 right-0 size-3 bg-primary rounded-full border-2 border-background-light dark:border-background-dark"></div>
+</div>
+<div>
+<h2 class="text-text-main dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Max</h2>
+<div class="flex items-center gap-1 text-xs text-text-sub cursor-pointer">
+<span>Golden Retriever</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center rounded-full size-10 bg-transparent text-text-main dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Segmented Control -->
+<div class="px-4 py-4 sticky top-[64px] z-10 bg-background-light dark:bg-background-dark">
+<div class="flex h-12 w-full items-center justify-center rounded-full bg-surface-light dark:bg-surface-dark p-1 shadow-sm border border-gray-100 dark:border-gray-800">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-full px-2 has-[:checked]:bg-primary has-[:checked]:text-white has-[:checked]:shadow-sm text-text-sub dark:text-gray-400 text-sm font-bold leading-normal transition-all duration-200">
+<span class="truncate">Schedule</span>
+<input checked="" class="invisible w-0" name="view-toggle" type="radio" value="Schedule"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-full px-2 has-[:checked]:bg-primary has-[:checked]:text-white has-[:checked]:shadow-sm text-text-sub dark:text-gray-400 text-sm font-bold leading-normal transition-all duration-200">
+<span class="truncate">History</span>
+<input class="invisible w-0" name="view-toggle" type="radio" value="History"/>
+</label>
+</div>
+</div>
+<!-- Horizontal Calendar Strip -->
+<div class="flex flex-col gap-2 px-4 pb-4">
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-text-main dark:text-white text-lg font-bold">October 2023</h3>
+<div class="flex gap-2">
+<button class="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-2 -mx-4 px-4 snap-x">
+<!-- Day Item: Active -->
+<div class="snap-start flex flex-col items-center justify-center min-w-[60px] h-[84px] rounded-xl bg-primary shadow-lg shadow-primary/30 text-white shrink-0 cursor-pointer">
+<span class="text-xs font-medium opacity-80 mb-1">Tue</span>
+<span class="text-2xl font-bold">24</span>
+<div class="mt-1 size-1.5 bg-white rounded-full"></div>
+</div>
+<!-- Day Item: Default -->
+<div class="snap-start flex flex-col items-center justify-center min-w-[60px] h-[84px] rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-800 text-text-main dark:text-white shrink-0 cursor-pointer hover:border-primary/50 transition-colors">
+<span class="text-xs font-medium text-text-sub mb-1">Wed</span>
+<span class="text-xl font-bold">25</span>
+</div>
+<!-- Day Item: Default -->
+<div class="snap-start flex flex-col items-center justify-center min-w-[60px] h-[84px] rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-800 text-text-main dark:text-white shrink-0 cursor-pointer hover:border-primary/50 transition-colors">
+<span class="text-xs font-medium text-text-sub mb-1">Thu</span>
+<span class="text-xl font-bold">26</span>
+</div>
+<!-- Day Item: Has Event -->
+<div class="snap-start flex flex-col items-center justify-center min-w-[60px] h-[84px] rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-800 text-text-main dark:text-white shrink-0 cursor-pointer hover:border-primary/50 transition-colors">
+<span class="text-xs font-medium text-text-sub mb-1">Fri</span>
+<span class="text-xl font-bold">27</span>
+<div class="mt-1 size-1.5 bg-primary rounded-full"></div>
+</div>
+<!-- Day Item: Default -->
+<div class="snap-start flex flex-col items-center justify-center min-w-[60px] h-[84px] rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-800 text-text-main dark:text-white shrink-0 cursor-pointer hover:border-primary/50 transition-colors">
+<span class="text-xs font-medium text-text-sub mb-1">Sat</span>
+<span class="text-xl font-bold">28</span>
+</div>
+<!-- Day Item: Default -->
+<div class="snap-start flex flex-col items-center justify-center min-w-[60px] h-[84px] rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-800 text-text-main dark:text-white shrink-0 cursor-pointer hover:border-primary/50 transition-colors">
+<span class="text-xs font-medium text-text-sub mb-1">Sun</span>
+<span class="text-xl font-bold">29</span>
+</div>
+</div>
+</div>
+<!-- Divider -->
+<div class="h-px w-full bg-gray-200 dark:bg-gray-800 my-2"></div>
+<!-- List Section: Today -->
+<div class="px-4 pt-4">
+<h3 class="text-text-main dark:text-white tracking-tight text-xl font-bold leading-tight mb-4">Today, Oct 24</h3>
+<!-- Card 1: Urgent -->
+<div class="flex flex-col gap-4 bg-surface-light dark:bg-surface-dark p-4 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 mb-4 transition-transform active:scale-[0.99]">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="flex items-center justify-center rounded-2xl bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 shrink-0 size-14">
+<span class="material-symbols-outlined text-[28px]">vaccines</span>
+</div>
+<div class="flex flex-col justify-center">
+<h4 class="text-text-main dark:text-white text-lg font-bold leading-normal">Rabies Booster</h4>
+<div class="flex items-center gap-1 mt-1 text-red-600 dark:text-red-400 text-sm font-medium">
+<span class="material-symbols-outlined text-[16px] filled">warning</span>
+<span>Due Today at 10:00 AM</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-background-light dark:bg-background-dark p-3 rounded-xl">
+<div class="size-8 rounded-full bg-gray-200 dark:bg-gray-700 bg-center bg-cover" data-alt="Doctor portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCxYmDxEG-yL8RVkXlpgXHNmNzKqB8vy2OoypYiMQ1XWohwqMnSX5ibeSFxgJvOj8IAfwhTLz1zjjuRLTNng7RL3jZoW3q-AcsnOLjrnEWlM39GGr6KlmGUJtHfRFQB_x9qNpbKo6INj_DdO1pMLUn1Sk-ReI7WJOu_FWgVn-Z95cyMqF_W2xoVfv3UPgd3OQtRzLgb83cQBe-i04O2JbluidMqVm1k_BNuVcXYP0TGIMPQXphnYbTxq9DJY5T3P8PHBNua0xGr9_U");'></div>
+<div class="flex flex-col">
+<span class="text-xs text-text-sub uppercase font-bold tracking-wider">Veterinarian</span>
+<span class="text-sm font-medium text-text-main dark:text-white">Dr. Sarah Wilson</span>
+</div>
+</div>
+<div class="flex gap-3 mt-1">
+<button class="flex-1 h-12 rounded-full border border-gray-200 dark:border-gray-700 text-text-main dark:text-white font-bold text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                        Reschedule
+                    </button>
+<button class="flex-1 h-12 rounded-full bg-primary text-black font-bold text-sm shadow-md shadow-primary/20 hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">check</span>
+                        Mark Done
+                    </button>
+</div>
+</div>
+</div>
+<!-- List Section: Upcoming -->
+<div class="px-4 pt-2">
+<h3 class="text-text-main dark:text-white tracking-tight text-xl font-bold leading-tight mb-4">Upcoming</h3>
+<!-- Card 2 -->
+<div class="flex items-center gap-4 bg-surface-light dark:bg-surface-dark px-4 py-4 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 mb-3 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<div class="flex items-center justify-center rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 shrink-0 size-12">
+<span class="material-symbols-outlined text-[24px]">medication_liquid</span>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-text-main dark:text-white text-base font-bold leading-normal">Deworming</p>
+<p class="text-text-sub text-sm font-normal leading-normal">Friday, Oct 27</p>
+</div>
+<button class="flex items-center justify-center size-8 rounded-full border border-gray-200 dark:border-gray-700 text-gray-400 hover:text-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">check</span>
+</button>
+</div>
+<!-- Card 3 -->
+<div class="flex items-center gap-4 bg-surface-light dark:bg-surface-dark px-4 py-4 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 mb-3 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<div class="flex items-center justify-center rounded-2xl bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 shrink-0 size-12">
+<span class="material-symbols-outlined text-[24px]">pets</span>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-text-main dark:text-white text-base font-bold leading-normal">Bordetella</p>
+<p class="text-text-sub text-sm font-normal leading-normal">Nov 15, 2023</p>
+</div>
+<button class="flex items-center justify-center size-8 rounded-full border border-gray-200 dark:border-gray-700 text-gray-400 hover:text-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">check</span>
+</button>
+</div>
+<!-- Card 4 -->
+<div class="flex items-center gap-4 bg-surface-light dark:bg-surface-dark px-4 py-4 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 mb-3 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<div class="flex items-center justify-center rounded-2xl bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 shrink-0 size-12">
+<span class="material-symbols-outlined text-[24px]">healing</span>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-text-main dark:text-white text-base font-bold leading-normal">Annual Checkup</p>
+<p class="text-text-sub text-sm font-normal leading-normal">Dec 01, 2023</p>
+</div>
+<button class="flex items-center justify-center size-8 rounded-full border border-gray-200 dark:border-gray-700 text-gray-400 hover:text-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">check</span>
+</button>
+</div>
+</div>
+<!-- Floating Action Button -->
+<div class="fixed bottom-6 right-6 z-30">
+<button class="flex items-center justify-center size-14 rounded-full bg-primary text-black shadow-lg shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+</div>
+<!-- Bottom Navigation (Optional but makes it look like an app) -->
+<nav class="fixed bottom-0 w-full z-20 bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-800 pb-safe">
+<div class="flex items-center justify-around h-16 pb-2">
+<button class="flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-text-main dark:hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[24px]">home</span>
+<span class="text-[10px] font-medium mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-primary">
+<span class="material-symbols-outlined text-[24px] filled">calendar_month</span>
+<span class="text-[10px] font-bold mt-1">Schedule</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-text-main dark:hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[24px]">folder_open</span>
+<span class="text-[10px] font-medium mt-1">Records</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-text-main dark:hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+<span class="text-[10px] font-medium mt-1">Settings</span>
+</button>
+</div>
+</nav>
+</div>
+</body></html>
